@@ -5,12 +5,13 @@ import ShowSnippet from "../Home/ShowSnippet";
 const ShowSearch = () => {
   const { search }: any = useParams();
   const [result, setResult] = useState([]);
+  const [page, setPage] = useState(3);
 
   useEffect(() => {
     const url = "https://api.tvmaze.com";
     const getResult = async () => {
       try {
-        const request = await fetch(`${url}/search/shows?q=${search}`);
+        const request = await fetch(`${url}/search/shows?q=${search}&page=3`);
         const response = await request.json();
         setResult(response);
       } catch (error) {
@@ -19,6 +20,7 @@ const ShowSearch = () => {
     };
     getResult();
   }, []);
+
   return (
     <div>
       <p>
