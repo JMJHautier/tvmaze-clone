@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./Nav.scss";
 
-const Nav = () => {
+const Nav = ({ value, setValue }: any) => {
   const onSearch = (value: any) => console.log(value);
-  const [value, setValue] = useState("");
   const history = useHistory();
 
   const handleSubmit = (event: any) => {

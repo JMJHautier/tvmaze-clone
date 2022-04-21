@@ -4,11 +4,14 @@ import Home from "./components/Home";
 import { Route, Switch } from "react-router-dom";
 import ShowPage from "./components/ShowPage";
 import ShowSearch from "./components/ShowSearch";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [value, setValue] = useState("");
+
   return (
     <div className="App">
-      <Nav />
+      <Nav value={value} setValue={setValue} />
 
       <Switch>
         <Route exact path="/">
@@ -19,7 +22,7 @@ function App() {
         </Route>
 
         <Route path="/search/:search">
-          <ShowSearch />
+          <ShowSearch value={value} setValue={setValue} />
         </Route>
       </Switch>
     </div>

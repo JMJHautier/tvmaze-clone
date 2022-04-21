@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ShowSnippet from "../Home/ShowSnippet";
 
-const ShowSearch = () => {
+const ShowSearch = ({ value }: any) => {
   const { search }: any = useParams();
   const [result, setResult] = useState([]);
   const [page, setPage] = useState(3);
@@ -11,7 +11,7 @@ const ShowSearch = () => {
     const url = "https://api.tvmaze.com";
     const getResult = async () => {
       try {
-        const request = await fetch(`${url}/search/shows?q=${search}&page=3`);
+        const request = await fetch(`${url}/search/shows?q=${value}&page=3`);
         const response = await request.json();
         setResult(response);
       } catch (error) {
@@ -19,12 +19,12 @@ const ShowSearch = () => {
       }
     };
     getResult();
-  }, []);
+  }, [value]);
 
   return (
     <div>
       <p>
-        show {result && result.length} results for {search}{" "}
+        show {result && result.length} results for {value}{" "}
       </p>
       {result &&
         result.map((show: any) => {
