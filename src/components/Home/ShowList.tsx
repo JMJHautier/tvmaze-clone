@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import ShowSnippet from "./ShowSnippet";
+import { v4 as uuidv4 } from "uuid";
 
 const ShowList = () => {
   const [shows, setShows] = useState([]);
   const url = "https://api.tvmaze.com";
   useEffect(() => {
     const getShow = async () => {
-      const request = await fetch(`${url}/shows?page=1`);
-      const response = await request.json();
-      const firstFiveShow = response.slice(0, 5);
-      setShows(firstFiveShow);
+      try {
+        const request = await fetch(`${url}/shows?page=1`);
+        const response = await request.json();
+        const firstFiveShow = response.slice(0, 5);
+        setShows(firstFiveShow);
+      } catch (error) {
+        console.log(error);
+      }
     };
     getShow();
   }, []);
@@ -21,7 +26,7 @@ const ShowList = () => {
         <div className="ShowList">
           {shows.length &&
             shows.map((show: any) => {
-              return <ShowSnippet data={show} />;
+              return <ShowSnippet key={uuidv4()} data={show} />;
             })}
         </div>
       </div>
