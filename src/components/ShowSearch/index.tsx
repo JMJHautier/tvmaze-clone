@@ -14,14 +14,16 @@ const ShowSearch = () => {
         const response = await request.json();
         setResult(response);
       } catch (error) {
-        console.log("error");
+        console.log(error);
       }
     };
     getResult();
   }, []);
   return (
     <div>
-      <p>show search results for {search} </p>
+      <p>
+        show {result && result.length} results for {search}{" "}
+      </p>
       {result &&
         result.map((show: any) => {
           return <ShowSnippet data={show.show} />;

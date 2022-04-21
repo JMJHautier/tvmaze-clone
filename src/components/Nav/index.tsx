@@ -1,6 +1,6 @@
 import Search from "antd/lib/transfer/search";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Nav.scss";
 
 const Nav = () => {
@@ -21,7 +21,9 @@ const Nav = () => {
     <nav>
       <div className="Nav__header">
         <div className="Nav__logo">
-          <img src="/logo.png" alt="logo" />
+          <Link to="/">
+            <img src="/logo.png" alt="logo" />
+          </Link>
         </div>
         <form onSubmit={handleSubmit}>
           <input
