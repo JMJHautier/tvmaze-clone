@@ -1,11 +1,11 @@
 const Nav = () => {
   return (
     <nav>
-      <div>
+      <div className="Nav__logo">
         <img src="./logo.png" alt="logo" />
       </div>
-      <div>Search bar</div>
-      <ul>
+      <div className="Nav__search">Search bar</div>
+      <ul className="Nav__login">
         <li> Login </li>
         <li> Register </li>
       </ul>
