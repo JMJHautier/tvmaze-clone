@@ -11,12 +11,14 @@ const Cast = ({ cast }: any) => {
           }: any = actor;
 
           return (
-            <div>
+            <div className="ShowPage__cast__names">
               <div>
                 <img src={medium} alt={name} />
               </div>
-              <p>{actor.person.name}</p>
-              <p> as {actor.character.name}</p>
+              <div>
+                <p>{actor.person.name}</p>
+                <p> as {actor.character.name}</p>
+              </div>
             </div>
           );
         })}
