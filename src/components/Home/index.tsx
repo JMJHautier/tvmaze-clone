@@ -1,5 +1,6 @@
 import ShowList from "./ShowList";
 import ShowSchedule from "./ShowSchedule";
+import "./Home.scss";
 
 const Home = () => {
   return (

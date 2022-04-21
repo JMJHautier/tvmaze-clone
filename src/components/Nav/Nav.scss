@@ -1,0 +1,19 @@
+
+@use '../../styles/vars';
+
+nav {
+  
+}
+
+.Nav__header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background-color: vars.$color-bg-dark;
+  color: vars.$color-text-alt;
+}
+
+.Nav__login {
+  list-style:none;
+  display:inline-block
+}
