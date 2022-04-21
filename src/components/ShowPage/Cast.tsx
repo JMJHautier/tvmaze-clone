@@ -16,7 +16,7 @@ const Cast = ({ cast }: any) => {
                 <img src={medium} alt={name} />
               </div>
               <div>
-                <p>{actor.person.name}</p>
+                <p>{name}</p>
                 <p> as {actor.character.name}</p>
               </div>
             </div>
